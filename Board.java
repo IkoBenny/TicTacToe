@@ -2,8 +2,11 @@ package aop;
 
 public class Board {
 	final String EMPTY = "N";
+	final String x = "X";
+	final String o = "O";
 	final String boardColumn = "|";
 	final String boardRow = "_ _ _";
+	
 	String[][] board;
 	
 	public Board() {
@@ -38,6 +41,17 @@ public class Board {
 		System.out.print(getBottomMiddle()); 
 		System.out.print(boardColumn);
 		System.out.print(getBottomRight());
+	}
+	
+	public boolean boardFilled() {
+		boolean filled = true;
+		
+		for(int i =0; i < 3; i++) {
+			for(int j =0; j <3; j++)
+				if(board [i][j].equals(EMPTY))
+					filled = false;			
+		}
+		return filled;
 	}
 	
 	public void changeTopLeft(String token) {
@@ -155,5 +169,13 @@ public class Board {
 	
 	public String getBottomRight() {
 		return board[2][2];
+	}
+
+	public String getX() {
+		return x;
+	}
+
+	public String getO() {
+		return o;
 	}
 }
