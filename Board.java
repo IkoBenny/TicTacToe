@@ -41,6 +41,7 @@ public class Board {
 		System.out.print(getBottomMiddle()); 
 		System.out.print(boardColumn);
 		System.out.print(getBottomRight());
+		System.out.println();
 	}
 	
 	public boolean boardFilled() {
