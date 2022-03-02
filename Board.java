@@ -1,7 +1,7 @@
 package aop;
 
 public class Board {
-	final String EMPTY = "N";
+	final String EMPTY = "-";
 	final String x = "X";
 	final String o = "O";
 	final String boardColumn = "|";
@@ -42,6 +42,50 @@ public class Board {
 		System.out.print(boardColumn);
 		System.out.print(getBottomRight());
 		System.out.println();
+	}
+	
+	public boolean isTaken(String number) {
+		switch (number) {
+		case "1":
+			if(board[0][0].equals(EMPTY))
+				return false;
+			break;
+		case "2":
+			if(board[0][1].equals(EMPTY))
+				return false;
+			break;
+		case "3":
+			if(board[0][2].equals(EMPTY))
+				return false;
+			break;
+		case "4":
+			if(board[1][0].equals(EMPTY))
+				return false;
+			break;
+		case "5":
+			if(board[1][1].equals(EMPTY))
+				return false;
+			break;
+		case "6":
+			if(board[1][2].equals(EMPTY))
+				return false;
+			break;
+			
+		case "7":
+			if(board[2][0].equals(EMPTY))
+				return false;
+			break;
+		case "8":
+			if(board[2][1].equals(EMPTY))
+				return false;
+			break;
+		case "9":
+			if(board[2][2].equals(EMPTY))
+				return false;	
+			break;
+		}
+		
+		return true;
 	}
 	
 	public boolean boardFilled() {
