@@ -2,15 +2,20 @@ package aop;
 
 public class Referee {
 	Board b;
-	boolean gameOver = false;
+	boolean gameOver = false; 
 	
 	public Referee(Board b) {
 		this.b = b;
 	}
 	
 	public void checkGame() {
-		
-	}
+		if(isFarLeftVeritcal() || isMiddleVeritcal() || isRightVertical() || isTopHorizontal() || isMiddleHorizontal() || isBottomHorizontal()
+				|| isForwardDiagonal() || isBackwardDiagonal() || b.boardFilled()) {
+			gameOver = true;
+			System.out.println("Game is over.");
+		}
+			
+		}
 
 	public Board getB() {
 		return b;
@@ -76,7 +81,7 @@ public class Referee {
 	public boolean isForwardDiagonal() {
 		if(b.getTopLeft().equals(b.getX()) && b.getMiddle().equals(b.getX()) && b.getBottomRight().equals(b.getX()))
 			return true;
-		else if(b.getTopRight().equals(b.getX()) && b.getMiddle().equals(b.getX()) && b.getBottomRight().equals(b.getX()))
+		else if(b.getTopLeft().equals(b.getX()) && b.getMiddle().equals(b.getX()) && b.getBottomRight().equals(b.getX()))
 			return true;
 		else
 			return false;
